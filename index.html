@@ -1,0 +1,1519 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tertemis - Premium Profesyonel Temizlik Hizmetleri</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+        .font-montserrat { font-family: 'Montserrat', sans-serif; }
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        :root {
+            --primary: #0f172a;
+            --primary-light: #1e293b;
+            --primary-dark: #020617;
+            --secondary: #0ea5e9;
+            --secondary-dark: #0284c7;
+            --accent: #f59e0b;
+            --accent-dark: #d97706;
+            --success: #10b981;
+            --error: #ef4444;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --luxury-gold: #d4af37;
+            --luxury-gold-dark: #b8941f;
+        }
+        
+        .bg-primary { background-color: var(--primary); }
+        .bg-primary-light { background-color: var(--primary-light); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-accent { background-color: var(--accent); }
+        .bg-luxury-gold { background-color: var(--luxury-gold); }
+        .text-primary { color: var(--primary); }
+        .text-secondary { color: var(--secondary); }
+        .text-accent { color: var(--accent); }
+        .text-luxury-gold { color: var(--luxury-gold); }
+        
+        .hero-gradient {
+            background: linear-gradient(180deg, var(--primary) 0%, var(--primary-light) 20%, var(--secondary-dark) 60%, var(--secondary) 100%);
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+        
+        .premium-shadow {
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .luxury-shadow {
+            box-shadow: 
+                0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06),
+                0 20px 25px -5px rgba(0, 0, 0, 0.1),
+                0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.875rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.025em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .btn-primary:hover {
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--secondary-dark) 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 0.875rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.025em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--primary);
+            transform: translateY(-3px);
+            border-color: rgba(255, 255, 255, 1);
+            box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-luxury {
+            background: linear-gradient(135deg, var(--luxury-gold) 0%, var(--luxury-gold-dark) 100%);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 0.875rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.05em;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn-luxury:hover {
+            background: linear-gradient(135deg, var(--luxury-gold-dark) 0%, var(--accent) 100%);
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .slide-up {
+            animation: slideUp 0.8s ease-out;
+        }
+        
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .modal-backdrop {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(4px);
+        }
+        
+        .nav-link {
+            position: relative;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: inherit;
+        }
+        
+        .nav-link:hover {
+            color: #d4af37;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: #d4af37;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .service-card {
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-card {
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+        }
+        
+        .testimonial-card {
+            transition: all 0.3s ease;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .floating-element {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.6;
+            }
+            25% { 
+                transform: translateY(-15px) rotate(2deg); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(-30px) rotate(0deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-15px) rotate(-2deg); 
+                opacity: 0.8;
+            }
+        }
+        
+        .luxury-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .luxury-shimmer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.4), transparent);
+            animation: shimmer 3s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+        
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-text {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero-subtext {
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            padding: 1rem 1.5rem;
+            border-radius: 0.75rem;
+            color: white;
+            font-weight: 600;
+            animation: slideInRight 0.5s ease;
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        .success { background: var(--secondary); }
+        .error { background: var(--accent); }
+        
+        .service-option {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .service-option:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-option.selected {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px rgba(30, 64, 175, 0.3);
+        }
+        
+        .step-indicator {
+            transition: all 0.3s ease;
+        }
+        
+        .step-indicator.active {
+            background: var(--primary);
+            transform: scale(1.1);
+        }
+        
+        .step-indicator.completed {
+            background: var(--secondary);
+        }
+        
+        .progress-bar {
+            transition: width 0.5s ease;
+            background: var(--primary);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Premium Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass-card border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
+            <div class="flex justify-between items-center h-16 sm:h-20">
+                <div class="flex items-center">
+                    <div class="w-10 h-10 sm:w-14 sm:h-14 bg-gradient-to-br from-luxury-gold to-luxury-gold-dark rounded-xl sm:rounded-2xl flex items-center justify-center mr-3 sm:mr-5 luxury-shimmer">
+                        <svg class="w-5 h-5 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <span class="font-playfair text-lg sm:text-2xl lg:text-3xl font-bold text-gray-800">Tertemis</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <button class="nav-link font-montserrat font-medium text-gray-700 hover:text-luxury-gold transition-all duration-300 relative group" onclick="scrollToSection('home')">
+                        <span>Ana Sayfa</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-luxury-gold transition-all duration-300 group-hover:w-full"></div>
+                    </button>
+                    <button class="nav-link font-montserrat font-medium text-gray-700 hover:text-luxury-gold transition-all duration-300 relative group" onclick="scrollToSection('about')">
+                        <span>Hakkımızda</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-luxury-gold transition-all duration-300 group-hover:w-full"></div>
+                    </button>
+                    <button class="nav-link font-montserrat font-medium text-gray-700 hover:text-luxury-gold transition-all duration-300 relative group" onclick="scrollToSection('pricing')">
+                        <span>Fiyatlar</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-luxury-gold transition-all duration-300 group-hover:w-full"></div>
+                    </button>
+                    <button class="nav-link font-montserrat font-medium text-gray-700 hover:text-luxury-gold transition-all duration-300 relative group" onclick="scrollToSection('contact')">
+                        <span>İletişim</span>
+                        <div class="absolute -bottom-1 left-0 w-0 h-0.5 bg-luxury-gold transition-all duration-300 group-hover:w-full"></div>
+                    </button>
+                </div>
+                
+                <!-- Mobile & Desktop CTA -->
+                <div class="flex items-center space-x-2 sm:space-x-4">
+                    <button class="btn-luxury font-montserrat text-xs sm:text-sm px-3 py-2 sm:px-6 sm:py-3" onclick="openRequestModal()">
+                        <span class="flex items-center">
+                            <svg class="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                            </svg>
+                            <span class="hidden sm:inline">HİZMET TALEP ET</span>
+                            <span class="sm:hidden">TALEP</span>
+                        </span>
+                    </button>
+                    
+                    <!-- Mobile Menu Button -->
+                    <button class="lg:hidden p-2 rounded-lg text-gray-700 hover:bg-gray-100 transition-colors" onclick="toggleMobileMenu()">
+                        <svg id="menuIcon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                        <svg id="closeIcon" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
+                <div class="px-4 py-6 space-y-4">
+                    <button class="block py-3 text-gray-700 hover:text-luxury-gold font-montserrat font-medium transition-colors w-full text-left" onclick="scrollToSection('home')">Ana Sayfa</button>
+                    <button class="block py-3 text-gray-700 hover:text-luxury-gold font-montserrat font-medium transition-colors w-full text-left" onclick="scrollToSection('about')">Hakkımızda</button>
+                    <button class="block py-3 text-gray-700 hover:text-luxury-gold font-montserrat font-medium transition-colors w-full text-left" onclick="scrollToSection('pricing')">Fiyatlar</button>
+                    <button class="block py-3 text-gray-700 hover:text-luxury-gold font-montserrat font-medium transition-colors w-full text-left" onclick="scrollToSection('contact')">İletişim</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-gradient min-h-screen flex items-center relative overflow-hidden pt-24 sm:pt-32">
+        <!-- Premium Background Pattern -->
+        <div class="absolute inset-0 opacity-5">
+            <div class="absolute inset-0" style="background-image: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+                radial-gradient(circle at 40% 60%, rgba(255, 255, 255, 0.2) 1px, transparent 1px);
+                background-size: 40px 40px, 60px 60px, 80px 80px;"></div>
+        </div>
+        
+        <!-- Luxury Floating Elements -->
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="floating-element absolute top-20 left-4 sm:top-32 sm:left-16 w-16 h-16 sm:w-32 sm:h-32 bg-gradient-to-br from-white/10 to-transparent rounded-full blur-sm"></div>
+            <div class="floating-element absolute top-32 right-4 sm:top-48 sm:right-24 w-12 h-12 sm:w-24 sm:h-24 bg-gradient-to-br from-white/15 to-transparent rounded-full blur-sm" style="animation-delay: -2s;"></div>
+            <div class="floating-element absolute bottom-32 left-4 sm:bottom-48 sm:left-32 w-20 h-20 sm:w-40 sm:h-40 bg-gradient-to-br from-white/8 to-transparent rounded-full blur-sm" style="animation-delay: -4s;"></div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 relative z-10">
+            <div class="flex flex-col gap-12 sm:gap-16 lg:gap-20 min-h-[80vh] justify-center">
+                <!-- Top Content - Hero Section -->
+                <div class="fade-in text-center">
+                    <h1 class="font-playfair text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 sm:mb-8 leading-[1.1] hero-text tracking-wide">
+                        <span class="block text-luxury-gold italic font-black">Tertemis</span>
+                        <span class="block text-white font-light">ile</span>
+                        <span class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black bg-gradient-to-r from-white via-blue-100 to-luxury-gold bg-clip-text text-transparent drop-shadow-2xl">Tertemiz</span>
+                    </h1>
+                    
+                    <div class="w-16 sm:w-24 h-1 bg-luxury-gold mb-6 sm:mb-8 mx-auto"></div>
+                    
+                    <p class="font-inter text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl mb-8 sm:mb-12 leading-relaxed hero-subtext max-w-4xl mx-auto tracking-wide px-4">
+                        Profesyonel ekibimiz ve premium malzemelerimiz ile yaşam alanlarınızı 
+                        <span class="text-luxury-gold font-medium">mükemmelleştiriyoruz</span>. 
+                        Güven, kalite ve zarafet bir arada.
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-6 mb-12 sm:mb-16 justify-center px-4">
+                        <button class="btn-luxury text-base sm:text-lg px-6 sm:px-10 py-4 sm:py-5 font-montserrat" onclick="openRequestModal()">
+                            <span class="flex items-center justify-center">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                                HEMEN BAŞLAYIN
+                            </span>
+                        </button>
+                        <button class="btn-secondary text-base sm:text-lg px-6 sm:px-10 py-4 sm:py-5 font-montserrat" onclick="scrollToSection('about')">
+                            <span class="flex items-center justify-center">
+                                <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                                HAKKIMIZDA
+                            </span>
+                        </button>
+                    </div>
+                    
+                    <!-- Premium Stats -->
+                    <div class="grid grid-cols-3 gap-4 sm:gap-8 max-w-3xl mx-auto px-4">
+                        <div class="text-center group">
+                            <div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-luxury-gold mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300 tracking-wide">5000+</div>
+                            <div class="text-xs sm:text-sm font-montserrat font-medium text-white/80 uppercase tracking-wider">Mutlu Müşteri</div>
+                        </div>
+                        <div class="text-center group">
+                            <div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-luxury-gold mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300 tracking-wide">24/7</div>
+                            <div class="text-xs sm:text-sm font-montserrat font-medium text-white/80 uppercase tracking-wider">Destek Hizmeti</div>
+                        </div>
+                        <div class="text-center group">
+                            <div class="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-playfair font-bold text-luxury-gold mb-2 sm:mb-3 group-hover:scale-110 transition-transform duration-300 tracking-wide">99%</div>
+                            <div class="text-xs sm:text-sm font-montserrat font-medium text-white/80 uppercase tracking-wider">Memnuniyet</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Bottom Content - Price Calculator -->
+                <div class="slide-up max-w-2xl mx-auto w-full px-4">
+                    <div class="glass-card rounded-2xl sm:rounded-3xl p-6 sm:p-8 lg:p-10 premium-shadow relative overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="text-center mb-6 sm:mb-8">
+                                <div class="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 bg-luxury-gold rounded-xl sm:rounded-2xl mb-3 sm:mb-4">
+                                    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="font-playfair text-xl sm:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 sm:mb-3 tracking-wide">Anında Fiyat</h3>
+                                <p class="font-inter text-sm sm:text-base text-gray-600">Premium hizmet fiyatınızı hesaplayın</p>
+                            </div>
+                            
+                            <div class="space-y-4 sm:space-y-6">
+                                <div>
+                                    <label for="serviceType" class="block font-montserrat text-gray-700 font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide">Hizmet Türü</label>
+                                    <select id="serviceType" class="w-full p-3 sm:p-4 lg:p-5 rounded-xl sm:rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-transparent font-inter transition-all duration-300 text-sm sm:text-base" onchange="updatePrice()">
+                                        <option value="">Hizmet türünü seçiniz</option>
+                                        <option value="ev">🏠 Ev Temizliği</option>
+                                        <option value="ofis">🏢 Ofis Temizliği</option>
+                                        <option value="derin">✨ Derin Temizlik</option>
+                                        <option value="insaat">🔨 İnşaat Sonrası</option>
+                                    </select>
+                                </div>
+                                
+                                <div>
+                                    <label for="areaSize" class="block font-montserrat text-gray-700 font-semibold mb-3 sm:mb-4 text-xs sm:text-sm uppercase tracking-wide">Alan Büyüklüğü (m²)</label>
+                                    <input type="number" id="areaSize" placeholder="Örn: 120" class="w-full p-3 sm:p-4 lg:p-5 rounded-xl sm:rounded-2xl border-2 border-gray-200 focus:outline-none focus:ring-2 focus:ring-luxury-gold focus:border-transparent font-inter transition-all duration-300 text-sm sm:text-base" oninput="updatePrice()">
+                                </div>
+                                
+                                <div class="bg-gradient-to-br from-gray-50 to-gray-100 rounded-xl sm:rounded-2xl p-6 sm:p-8 text-center border border-gray-200">
+                                    <div class="font-montserrat text-xs sm:text-sm font-semibold text-gray-600 mb-2 sm:mb-3 uppercase tracking-wide">Tahmini Fiyat</div>
+                                    <div id="estimatedPrice" class="font-playfair text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-1 sm:mb-2">₺350-500</div>
+                                    <div class="font-inter text-xs sm:text-sm text-gray-500">Kesin fiyat için detaylı teklif alın</div>
+                                </div>
+                                
+                                <button class="btn-primary w-full text-base sm:text-lg py-4 sm:py-5 font-montserrat" onclick="openRequestModal()">
+                                    <span class="flex items-center justify-center">
+                                        <svg class="w-4 h-4 sm:w-5 sm:h-5 mr-2 sm:mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+                                        </svg>
+                                        DETAYLI TEKLİF AL
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold hero-text mb-6 tracking-wide">
+                    Neden <span class="text-luxury-gold">Bizi Seçmelisiniz?</span>
+                </h2>
+                <p class="text-xl hero-subtext max-w-4xl mx-auto leading-relaxed">
+                    10 yılı aşkın deneyimimiz ile binlerce müşteriye hizmet verdik. 
+                    Kalite, güven ve mükemmellik için doğru adrestesiniz.
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="fade-in">
+                    <div class="space-y-8">
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-3">Güvenilir Ekip</h3>
+                                <p class="text-white/80 leading-relaxed">
+                                    Deneyimli ve güvenilir profesyonel temizlik ekibimiz ile eviniz güvende.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-3">Hızlı Servis</h3>
+                                <p class="text-white/80 leading-relaxed">
+                                    24 saat içinde hizmet garantisi ile acil ihtiyaçlarınızı karşılıyoruz.
+                                </p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mr-6 flex-shrink-0">
+                                <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="text-2xl font-bold text-white mb-3">Premium Kalite</h3>
+                                <p class="text-white/80 leading-relaxed">
+                                    En kaliteli malzemeler ve ekipmanlar ile mükemmel sonuçlar garantisi.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-up">
+                    <div class="glass-card rounded-3xl p-10 premium-shadow">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Başarı İstatistiklerimiz</h3>
+                        
+                        <div class="grid grid-cols-2 gap-8">
+                            <div class="text-center">
+                                <div class="text-5xl font-black text-primary mb-3">5000+</div>
+                                <div class="text-gray-600 font-medium">Mutlu Müşteri</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-5xl font-black text-secondary mb-3">10+</div>
+                                <div class="text-gray-600 font-medium">Yıl Deneyim</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-5xl font-black text-accent mb-3">99%</div>
+                                <div class="text-gray-600 font-medium">Memnuniyet</div>
+                            </div>
+                            <div class="text-center">
+                                <div class="text-5xl font-black text-yellow-500 mb-3">24/7</div>
+                                <div class="text-gray-600 font-medium">Destek</div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-10 text-center">
+                            <button class="btn-primary text-lg px-10 py-4" onclick="openRequestModal()">
+                                Hemen Başlayın
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-6 tracking-wide">
+                    Şeffaf <span class="text-luxury-gold">Fiyatlandırma</span>
+                </h2>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
+                    İhtiyacınıza uygun paket seçenekleri ile bütçenizi aşmadan kaliteli hizmet alın
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+                <!-- Basic Package -->
+                <div class="pricing-card bg-white rounded-3xl p-10 premium-shadow border border-gray-200">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Temel Paket</h3>
+                        <div class="text-5xl font-black text-gray-800 mb-2">₺200</div>
+                        <div class="text-gray-600">/ hizmet başına</div>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Genel temizlik (100m² kadar)
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Temel malzemeler dahil
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            2 saatlik hizmet
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Memnuniyet garantisi
+                        </li>
+                    </ul>
+                    <button class="w-full border-2 border-gray-300 text-gray-700 py-4 rounded-xl font-semibold hover:border-gray-400 hover:bg-gray-50 transition-all" onclick="openRequestModal()">
+                        Paketi Seç
+                    </button>
+                </div>
+
+                <!-- Premium Package -->
+                <div class="pricing-card bg-white rounded-3xl p-10 premium-shadow border-2 border-blue-500 relative transform scale-105">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+                        <span class="bg-primary text-white px-6 py-2 rounded-full text-sm font-bold">EN POPÜLER</span>
+                    </div>
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">Premium Paket</h3>
+                        <div class="text-5xl font-black text-gray-800 mb-2">₺350</div>
+                        <div class="text-gray-600">/ hizmet başına</div>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Detaylı temizlik (200m² kadar)
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Premium malzemeler dahil
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            4 saatlik hizmet
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Cam temizliği dahil
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            7 gün garanti
+                        </li>
+                    </ul>
+                    <button class="btn-primary w-full py-4" onclick="openRequestModal()">
+                        Paketi Seç
+                    </button>
+                </div>
+
+                <!-- VIP Package -->
+                <div class="pricing-card bg-white rounded-3xl p-10 premium-shadow border border-gray-200">
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-4">VIP Paket</h3>
+                        <div class="text-5xl font-black text-gray-800 mb-2">₺500</div>
+                        <div class="text-gray-600">/ hizmet başına</div>
+                    </div>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Derin temizlik (sınırsız m²)
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Lüks malzemeler dahil
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            6+ saatlik hizmet
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            Halı & koltuk temizliği
+                        </li>
+                        <li class="flex items-center text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            30 gün garanti
+                        </li>
+                    </ul>
+                    <button class="bg-accent text-white px-8 py-4 rounded-xl font-semibold w-full hover:bg-red-700 transition-colors" onclick="openRequestModal()">
+                        Paketi Seç
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 hero-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-3xl lg:text-4xl font-bold hero-text mb-6 tracking-wide">
+                    Bizimle <span class="text-yellow-300">İletişime Geçin</span>
+                </h2>
+                <p class="text-xl hero-subtext max-w-4xl mx-auto leading-relaxed">
+                    Sorularınız için bize ulaşın, size en uygun çözümü birlikte bulalım
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="hero-text fade-in">
+                    <div class="space-y-10">
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Telefon</h3>
+                                <p class="hero-subtext text-lg">0850 123 45 67</p>
+                                <p class="text-blue-200 text-sm">7/24 Destek Hattı</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">E-posta</h3>
+                                <p class="hero-subtext text-lg">info@temizlikkapinda.com</p>
+                                <p class="text-blue-200 text-sm">24 saat içinde yanıt</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Adres</h3>
+                                <p class="hero-subtext text-lg">İstanbul, Türkiye</p>
+                                <p class="text-blue-200 text-sm">Tüm İstanbul'a hizmet</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center">
+                            <div class="w-16 h-16 glass-card rounded-2xl flex items-center justify-center mr-6">
+                                <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-xl mb-2">Çalışma Saatleri</h3>
+                                <p class="hero-subtext text-lg">7/24 Hizmet</p>
+                                <p class="text-blue-200 text-sm">Hafta sonu dahil</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="slide-up">
+                    <div class="glass-card rounded-3xl p-10 premium-shadow">
+                        <h3 class="text-3xl font-bold text-gray-800 mb-8 text-center">Mesaj Gönderin</h3>
+                        <form class="space-y-6" action="https://formspree.io/f/xkgqkyvw" method="POST" onsubmit="handleContactForm(event)">
+                            <div>
+                                <label for="contact-name" class="block text-gray-700 font-medium mb-3">İsim Soyisim</label>
+                                <input type="text" name="name" id="contact-name" required class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Adınızı ve soyadınızı girin">
+                            </div>
+                            <div>
+                                <label for="contact-email" class="block text-gray-700 font-medium mb-3">E-posta Adresi</label>
+                                <input type="email" name="email" id="contact-email" required class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="E-posta adresinizi girin">
+                            </div>
+                            <div>
+                                <label for="contact-phone" class="block text-gray-700 font-medium mb-3">Telefon Numarası</label>
+                                <input type="tel" name="phone" id="contact-phone" required class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Telefon numaranızı girin">
+                            </div>
+                            <div>
+                                <label for="contact-message" class="block text-gray-700 font-medium mb-3">Mesajınız</label>
+                                <textarea name="message" id="contact-message" rows="5" required class="w-full px-6 py-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Mesajınızı detaylı olarak yazın"></textarea>
+                            </div>
+                            <input type="hidden" name="_subject" value="Tertemis - İletişim Formu">
+                            <input type="hidden" name="_next" value="javascript:void(0)">
+                            <button type="submit" class="btn-primary w-full text-lg">
+                                <span class="flex items-center justify-center">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+                                    </svg>
+                                    Mesaj Gönder
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-10">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <div class="w-10 h-10 bg-primary rounded-lg flex items-center justify-center mr-3">
+                            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                            </svg>
+                        </div>
+                        <span class="text-2xl font-bold">Tertemis</span>
+                    </div>
+                    <p class="text-gray-400 leading-relaxed mb-6">
+                        Premium temizlik hizmetleri ile hayatınızı kolaylaştırıyoruz. 
+                        Kalite ve güven bizim önceliğimiz.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Hizmetlerimiz</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Ev Temizliği</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Ofis Temizliği</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Derin Temizlik</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">İnşaat Sonrası</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Mağaza Temizliği</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Araç Temizliği</button></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Şirket</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><button class="hover:text-white transition-colors text-left" onclick="scrollToSection('about')">Hakkımızda</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="scrollToSection('about')">Ekibimiz</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Kariyer</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Basın</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="openRequestModal()">Blog</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="scrollToSection('contact')">İletişim</button></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-bold text-xl mb-6">Destek</h3>
+                    <ul class="space-y-3 text-gray-400">
+                        <li><button class="hover:text-white transition-colors text-left" onclick="scrollToSection('contact')">Yardım Merkezi</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="showFAQ()">SSS</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="showPrivacyPolicy()">Gizlilik Politikası</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="showTerms()">Kullanım Şartları</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="showCookiePolicy()">Çerez Politikası</button></li>
+                        <li><button class="hover:text-white transition-colors text-left" onclick="showKVKK()">KVKK</button></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400">
+                <p>&copy; 2024 Tertemis. Tüm hakları saklıdır.</p>
+                <p class="mt-4 md:mt-0">Profesyonel temizlik hizmetleri ile güvenilir çözümler.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Request Modal -->
+    <div id="requestModal" class="fixed inset-0 z-50 hidden">
+        <div class="modal-backdrop absolute inset-0" onclick="closeRequestModal()"></div>
+        <div class="flex items-center justify-center min-h-screen p-4">
+            <div class="bg-white rounded-3xl premium-shadow max-w-3xl w-full max-h-[90vh] overflow-y-auto relative">
+                <button class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-3xl z-10 w-10 h-10 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors" onclick="closeRequestModal()">×</button>
+                
+                <!-- Progress Bar -->
+                <div class="bg-gray-200 h-3">
+                    <div id="progressBar" class="progress-bar h-3 rounded-full" style="width: 25%"></div>
+                </div>
+                
+                <!-- Step Indicators -->
+                <div class="flex justify-center space-x-6 p-8 pb-0">
+                    <div class="step-indicator w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-white font-bold active" data-step="1">1</div>
+                    <div class="step-indicator w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-white font-bold" data-step="2">2</div>
+                    <div class="step-indicator w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-white font-bold" data-step="3">3</div>
+                    <div class="step-indicator w-12 h-12 rounded-full bg-gray-300 flex items-center justify-center text-white font-bold" data-step="4">4</div>
+                </div>
+                
+                <div class="p-10">
+                    <!-- Step 1: Service Type -->
+                    <div id="step1" class="step-content">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center tracking-wide">Hangi Hizmeti İstiyorsunuz?</h2>
+                        <p class="text-lg text-gray-600 text-center mb-10">Size en uygun temizlik hizmetini seçin</p>
+                        
+                        <div class="grid grid-cols-2 gap-6">
+                            <button class="service-option p-8 border-2 border-gray-200 rounded-2xl text-center" onclick="selectService('ev')">
+                                <div class="w-16 h-16 bg-primary rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-800 text-lg mb-2">Ev Temizliği</div>
+                                <div class="text-sm text-gray-500">Genel ev temizlik hizmeti</div>
+                            </button>
+                            
+                            <button class="service-option p-8 border-2 border-gray-200 rounded-2xl text-center" onclick="selectService('ofis')">
+                                <div class="w-16 h-16 bg-secondary rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path>
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-800 text-lg mb-2">Ofis Temizliği</div>
+                                <div class="text-sm text-gray-500">İş yeri temizlik hizmeti</div>
+                            </button>
+                            
+                            <button class="service-option p-8 border-2 border-gray-200 rounded-2xl text-center" onclick="selectService('derin')">
+                                <div class="w-16 h-16 bg-accent rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-800 text-lg mb-2">Derin Temizlik</div>
+                                <div class="text-sm text-gray-500">Detaylı temizlik hizmeti</div>
+                            </button>
+                            
+                            <button class="service-option p-8 border-2 border-gray-200 rounded-2xl text-center" onclick="selectService('insaat')">
+                                <div class="w-16 h-16 bg-yellow-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
+                                    </svg>
+                                </div>
+                                <div class="font-bold text-gray-800 text-lg mb-2">İnşaat Sonrası</div>
+                                <div class="text-sm text-gray-500">Tadilat sonrası temizlik</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Area Size -->
+                    <div id="step2" class="step-content hidden">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center tracking-wide">Alan Büyüklüğü</h2>
+                        <p class="text-gray-600 text-center mb-10 text-lg">Temizlenecek alanın büyüklüğünü belirtin</p>
+                        
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <button class="service-option p-6 border-2 border-gray-200 rounded-2xl text-center" onclick="selectArea('50')">
+                                <div class="text-3xl font-bold text-primary mb-2">50m²</div>
+                                <div class="text-gray-600">Küçük Alan</div>
+                            </button>
+                            <button class="service-option p-6 border-2 border-gray-200 rounded-2xl text-center" onclick="selectArea('100')">
+                                <div class="text-3xl font-bold text-primary mb-2">100m²</div>
+                                <div class="text-gray-600">Orta Alan</div>
+                            </button>
+                            <button class="service-option p-6 border-2 border-gray-200 rounded-2xl text-center" onclick="selectArea('200')">
+                                <div class="text-3xl font-bold text-primary mb-2">200m²</div>
+                                <div class="text-gray-600">Büyük Alan</div>
+                            </button>
+                            <button class="service-option p-6 border-2 border-gray-200 rounded-2xl text-center" onclick="selectArea('custom')">
+                                <div class="text-3xl font-bold text-primary mb-2">?</div>
+                                <div class="text-gray-600">Özel Boyut</div>
+                            </button>
+                        </div>
+                        
+                        <div id="customAreaInput" class="hidden">
+                            <label class="block text-gray-700 font-medium mb-3">Özel Alan Büyüklüğü (m²)</label>
+                            <input type="number" id="customArea" class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Örn: 150" oninput="handleCustomArea()">
+                        </div>
+                        
+                        <div class="flex justify-between mt-8">
+                            <button class="px-8 py-3 border border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50" onclick="previousStep()">
+                                Geri
+                            </button>
+                            <button class="btn-primary px-8 py-3" onclick="nextStep()">
+                                Devam Et
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Contact Info -->
+                    <div id="step3" class="step-content hidden">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center tracking-wide">İletişim Bilgileri</h2>
+                        <p class="text-gray-600 text-center mb-10 text-lg">Size ulaşabilmemiz için bilgilerinizi girin</p>
+                        
+                        <div class="space-y-6">
+                            <div>
+                                <label for="customerName" class="block text-gray-700 font-medium mb-3">İsim Soyisim</label>
+                                <input type="text" id="customerName" required class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Adınızı ve soyadınızı girin">
+                            </div>
+                            <div>
+                                <label for="customerPhone" class="block text-gray-700 font-medium mb-3">Telefon Numarası</label>
+                                <input type="tel" id="customerPhone" required class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Telefon numaranızı girin">
+                            </div>
+                            <div>
+                                <label for="customerEmail" class="block text-gray-700 font-medium mb-3">E-posta Adresi</label>
+                                <input type="email" id="customerEmail" required class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="E-posta adresinizi girin">
+                            </div>
+                            <div>
+                                <label for="customerAddress" class="block text-gray-700 font-medium mb-3">Adres</label>
+                                <textarea id="customerAddress" rows="3" required class="w-full p-4 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Hizmet alacağınız adresi girin"></textarea>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between mt-8">
+                            <button class="px-8 py-3 border border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50" onclick="previousStep()">
+                                Geri
+                            </button>
+                            <button class="btn-primary px-8 py-3" onclick="nextStep()">
+                                Devam Et
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Confirmation -->
+                    <div id="step4" class="step-content hidden">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center tracking-wide">Talep Özeti</h2>
+                        <p class="text-gray-600 text-center mb-10 text-lg">Bilgilerinizi kontrol edin ve talebi gönderin</p>
+                        
+                        <div class="bg-gray-50 rounded-2xl p-8 mb-8">
+                            <div class="grid md:grid-cols-2 gap-6">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-4">Hizmet Detayları</h4>
+                                    <div class="space-y-2 text-gray-600">
+                                        <div>Hizmet Türü: <span id="summaryService" class="font-semibold text-gray-800"></span></div>
+                                        <div>Alan Büyüklüğü: <span id="summaryArea" class="font-semibold text-gray-800"></span></div>
+                                        <div>Tahmini Fiyat: <span id="summaryPrice" class="font-semibold text-primary"></span></div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-gray-800 mb-4">İletişim Bilgileri</h4>
+                                    <div class="space-y-2 text-gray-600">
+                                        <div>İsim: <span id="summaryName" class="font-semibold text-gray-800"></span></div>
+                                        <div>Telefon: <span id="summaryPhone" class="font-semibold text-gray-800"></span></div>
+                                        <div>E-posta: <span id="summaryEmail" class="font-semibold text-gray-800"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex justify-between">
+                            <button class="px-8 py-3 border border-gray-300 rounded-xl font-semibold text-gray-700 hover:bg-gray-50" onclick="previousStep()">
+                                Geri
+                            </button>
+                            <button class="btn-primary px-8 py-3" onclick="submitRequest()">
+                                Talebi Gönder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentStep = 1;
+        let requestData = {
+            service: '',
+            area: '',
+            name: '',
+            phone: '',
+            email: '',
+            address: ''
+        };
+
+        // Navigation functions
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            closeMobileMenu();
+        }
+
+        // Mobile menu functions
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            if (mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.remove('hidden');
+                menuIcon.classList.add('hidden');
+                closeIcon.classList.remove('hidden');
+            } else {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('hidden');
+                closeIcon.classList.add('hidden');
+            }
+        }
+
+        function closeMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            const menuIcon = document.getElementById('menuIcon');
+            const closeIcon = document.getElementById('closeIcon');
+            
+            mobileMenu.classList.add('hidden');
+            menuIcon.classList.remove('hidden');
+            closeIcon.classList.add('hidden');
+        }
+
+        // Price calculator
+        function updatePrice() {
+            const serviceType = document.getElementById('serviceType').value;
+            const areaSize = parseInt(document.getElementById('areaSize').value) || 0;
+            const priceElement = document.getElementById('estimatedPrice');
+            
+            if (serviceType && areaSize > 0) {
+                let basePrice = 0;
+                switch (serviceType) {
+                    case 'ev': basePrice = 2; break;
+                    case 'ofis': basePrice = 3; break;
+                    case 'derin': basePrice = 5; break;
+                    case 'insaat': basePrice = 4; break;
+                }
+                
+                const minPrice = Math.round(basePrice * areaSize);
+                const maxPrice = Math.round(minPrice * 1.5);
+                priceElement.textContent = `₺${minPrice}-${maxPrice}`;
+            } else {
+                priceElement.textContent = '₺350-500';
+            }
+        }
+
+        // Modal functions
+        function openRequestModal() {
+            document.getElementById('requestModal').classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            resetModal();
+        }
+
+        function closeRequestModal() {
+            document.getElementById('requestModal').classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        function resetModal() {
+            currentStep = 1;
+            requestData = { service: '', area: '', name: '', phone: '', email: '', address: '' };
+            showStep(1);
+            updateProgress();
+            clearSelections();
+        }
+
+        function showStep(step) {
+            // Hide all steps
+            document.querySelectorAll('.step-content').forEach(content => {
+                content.classList.add('hidden');
+            });
+            
+            // Show current step
+            document.getElementById(`step${step}`).classList.remove('hidden');
+            
+            // Update step indicators
+            document.querySelectorAll('.step-indicator').forEach((indicator, index) => {
+                indicator.classList.remove('active', 'completed');
+                if (index + 1 === step) {
+                    indicator.classList.add('active');
+                } else if (index + 1 < step) {
+                    indicator.classList.add('completed');
+                }
+            });
+        }
+
+        function updateProgress() {
+            const progress = (currentStep / 4) * 100;
+            document.getElementById('progressBar').style.width = `${progress}%`;
+        }
+
+        function nextStep() {
+            if (validateCurrentStep()) {
+                currentStep++;
+                if (currentStep === 4) {
+                    updateSummary();
+                }
+                showStep(currentStep);
+                updateProgress();
+            }
+        }
+
+        function previousStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                showStep(currentStep);
+                updateProgress();
+            }
+        }
+
+        function validateCurrentStep() {
+            switch (currentStep) {
+                case 1:
+                    if (!requestData.service) {
+                        showNotification('Lütfen bir hizmet türü seçin', 'error');
+                        return false;
+                    }
+                    break;
+                case 2:
+                    if (!requestData.area) {
+                        showNotification('Lütfen alan büyüklüğünü belirtin', 'error');
+                        return false;
+                    }
+                    break;
+                case 3:
+                    const name = document.getElementById('customerName').value.trim();
+                    const phone = document.getElementById('customerPhone').value.trim();
+                    const email = document.getElementById('customerEmail').value.trim();
+                    const address = document.getElementById('customerAddress').value.trim();
+                    
+                    if (!name || !phone || !email || !address) {
+                        showNotification('Lütfen tüm alanları doldurun', 'error');
+                        return false;
+                    }
+                    
+                    requestData.name = name;
+                    requestData.phone = phone;
+                    requestData.email = email;
+                    requestData.address = address;
+                    break;
+            }
+            return true;
+        }
+
+        function selectService(service) {
+            requestData.service = service;
+            
+            // Update UI
+            document.querySelectorAll('#step1 .service-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            event.target.closest('.service-option').classList.add('selected');
+            
+            // Auto advance after short delay
+            setTimeout(() => {
+                nextStep();
+            }, 500);
+        }
+
+        function selectArea(area) {
+            if (area === 'custom') {
+                document.getElementById('customAreaInput').classList.remove('hidden');
+                requestData.area = '';
+            } else {
+                requestData.area = area + 'm²';
+                document.getElementById('customAreaInput').classList.add('hidden');
+                
+                // Update UI
+                document.querySelectorAll('#step2 .service-option').forEach(option => {
+                    option.classList.remove('selected');
+                });
+                event.target.closest('.service-option').classList.add('selected');
+                
+                // Auto advance after short delay
+                setTimeout(() => {
+                    nextStep();
+                }, 500);
+            }
+        }
+
+        function handleCustomArea() {
+            const value = document.getElementById('customArea').value.trim();
+            if (value) {
+                requestData.area = value + 'm²';
+            }
+        }
+
+        function updateSummary() {
+            const serviceNames = {
+                'ev': 'Ev Temizliği',
+                'ofis': 'Ofis Temizliği',
+                'derin': 'Derin Temizlik',
+                'insaat': 'İnşaat Sonrası Temizlik'
+            };
+            
+            document.getElementById('summaryService').textContent = serviceNames[requestData.service] || requestData.service;
+            document.getElementById('summaryArea').textContent = requestData.area;
+            document.getElementById('summaryName').textContent = requestData.name;
+            document.getElementById('summaryPhone').textContent = requestData.phone;
+            document.getElementById('summaryEmail').textContent = requestData.email;
+            
+            // Calculate price
+            const area = parseInt(requestData.area);
+            let basePrice = 0;
+            switch (requestData.service) {
+                case 'ev': basePrice = 2; break;
+                case 'ofis': basePrice = 3; break;
+                case 'derin': basePrice = 5; break;
+                case 'insaat': basePrice = 4; break;
+            }
+            
+            const minPrice = Math.round(basePrice * area);
+            const maxPrice = Math.round(minPrice * 1.5);
+            document.getElementById('summaryPrice').textContent = `₺${minPrice}-${maxPrice}`;
+        }
+
+        async function submitRequest() {
+            const submitBtn = document.querySelector('#step4 .btn-primary');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<span class="flex items-center justify-center"><svg class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Gönderiliyor...</span>';
+            submitBtn.disabled = true;
+            
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('service_type', requestData.service);
+            formData.append('area_size', requestData.area);
+            formData.append('customer_name', requestData.name);
+            formData.append('customer_phone', requestData.phone);
+            formData.append('customer_email', requestData.email);
+            formData.append('customer_address', requestData.address);
+            formData.append('_subject', 'Tertemis - Hizmet Talebi');
+            
+            // Calculate estimated price for the email
+            const area = parseInt(requestData.area);
+            let basePrice = 0;
+            const serviceNames = {
+                'ev': 'Ev Temizliği',
+                'ofis': 'Ofis Temizliği', 
+                'derin': 'Derin Temizlik',
+                'insaat': 'İnşaat Sonrası Temizlik'
+            };
+            
+            switch (requestData.service) {
+                case 'ev': basePrice = 2; break;
+                case 'ofis': basePrice = 3; break;
+                case 'derin': basePrice = 5; break;
+                case 'insaat': basePrice = 4; break;
+            }
+            
+            const minPrice = Math.round(basePrice * area);
+            const maxPrice = Math.round(minPrice * 1.5);
+            
+            formData.append('estimated_price', `₺${minPrice}-${maxPrice}`);
+            formData.append('service_name', serviceNames[requestData.service]);
+            
+            try {
+                const response = await fetch('https://formspree.io/f/xkgqkyvw', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showNotification('Talebiniz başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
+                    setTimeout(() => {
+                        closeRequestModal();
+                    }, 2000);
+                } else {
+                    throw new Error('Talep gönderiminde hata oluştu');
+                }
+            } catch (error) {
+                showNotification('Talep gönderilirken bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+            } finally {
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        function clearSelections() {
+            document.querySelectorAll('.service-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            document.getElementById('customAreaInput').classList.add('hidden');
+        }
+
+        // Contact form handler
+        async function handleContactForm(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Show loading state
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<span class="flex items-center justify-center"><svg class="animate-spin w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>Gönderiliyor...</span>';
+            submitBtn.disabled = true;
+            
+            try {
+                const response = await fetch(form.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+                
+                if (response.ok) {
+                    showNotification('Mesajınız başarıyla gönderildi! En kısa sürede size dönüş yapacağız.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error('Form gönderiminde hata oluştu');
+                }
+            } catch (error) {
+                showNotification('Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.', 'error');
+            } finally {
+                // Restore button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+        }
+
+        // Notification system
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `notification ${type}`;
+            notification.textContent = message;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 5000);
+        }
+
+        // Footer link functions
+        function showFAQ() {
+            showNotification('SSS sayfası yakında eklenecek!', 'success');
+        }
+
+        function showPrivacyPolicy() {
+            showNotification('Gizlilik Politikası sayfası yakında eklenecek!', 'success');
+        }
+
+        function showTerms() {
+            showNotification('Kullanım Şartları sayfası yakında eklenecek!', 'success');
+        }
+
+        function showCookiePolicy() {
+            showNotification('Çerez Politikası sayfası yakında eklenecek!', 'success');
+        }
+
+        function showKVKK() {
+            showNotification('KVKK sayfası yakında eklenecek!', 'success');
+        }
+
+        // Close modal when clicking outside
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('modal-backdrop')) {
+                closeRequestModal();
+            }
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeRequestModal();
+            }
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'992143b541e349c7',t:'MTc2MTA1NTA1MS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
